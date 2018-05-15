@@ -21,9 +21,9 @@ public class HomePage extends PageBase {
 	private List<WebElement> applicationLinks;
 
 	@FindBy(xpath = "//div[contains(@class,'TabbedPanelsContentVisible')]//a[contains(@class,'applistField')]")
-	// @FindBy(xpath =
-	// "//div[contains(@class,'TabbedPanelsContentVisible')]//a[contains(@id,'ctl00_cphMainContent')]")
 	private List<WebElement> visibleLink;
+
+	// Narendra
 
 	public HomePage(final WebDriver Driver) {
 		super(Driver);
@@ -32,6 +32,7 @@ public class HomePage extends PageBase {
 
 	public void verifyHomepage() {
 
+		waitForVisiblityOfElement(welcomeMsg);
 		Assert.assertTrue("User is not on Homepage", welcomeMsg.getText().contentEquals("Welcome"));
 
 	}
@@ -45,12 +46,9 @@ public class HomePage extends PageBase {
 
 	public boolean verifyMenuOptionsIsClickable() {
 		boolean enableFlag = false;
-		for (int i = 0; i < applicationLinks.size(); i++) {
-			if (Assert.applicationLinks.get(i).isEnabled())
-				enableFlag = true;
-			else
-				enableFlag = true;
-			System.out.println("User Clicked on" + applicationLinksText.get(i).getText());
+		for (WebElement Menu : applicationLinks) {
+			enableFlag = Menu.isDisplayed();
+			System.out.println("User Clicked on" + Menu.getText());
 		}
 		return enableFlag;
 	}
@@ -67,4 +65,14 @@ public class HomePage extends PageBase {
 			}
 		}
 	}
+
+	public void clickOnDeliveryOption(String MenuName) {
+		for (WebElement Menu : applicationLinks) {
+			if ((Menu.isDisplayed()) && Menu.getText().contentEquals(MenuName))
+				Menu.click();
+			System.out.println("User Clicked on" + Menu.getText());
+			break;
+		}
+	}
 }
+

@@ -1,5 +1,6 @@
 package com.iConnectTest.stepDefinations;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import com.iConnectTest.page.HomePage;
@@ -31,10 +32,14 @@ public class HomePageStepDef {
 		homePage.getAllVisibleLinkText();
 	}
 
-	@When("^User able to see the all Menu options$")
-	public void user_able_to_see_the_all_Menu_options() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@When("^Verify all Menu options are clickable$")
+	public void Verify_all_Menu_options_are_clickable() throws Throwable {
+		Assert.assertFalse("All main menu options are not displayed", homePage.verifyMenuOptionsIsClickable());
+	}
+
+	@When("^User Click on \"(.*)\" Menu Option$")
+	public void user_Click_On_Menu(String Menu) {
+		homePage.clickOnDeliveryOption(Menu);
 	}
 
 	@Then("^Verify label of all menu options$")
@@ -42,5 +47,4 @@ public class HomePageStepDef {
 		// Write code here that turns the phrase above into concrete actions
 		throw new PendingException();
 	}
-
 }

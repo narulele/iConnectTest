@@ -12,11 +12,14 @@ public class Context {
 
 	@Before
 	public void Setup() {
+		if(Driver!=null)
+		{
 		System.out.println("Driver intializing");
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Irresistable\\iConnectTest\\src\\main\\resources\\chromedriver.exe");
 		Driver = new ChromeDriver();
 		System.out.println("Driver initialized");
+		}
 	}
 
 	public WebDriver getDriver() {
