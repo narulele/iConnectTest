@@ -8,16 +8,18 @@ import cucumber.api.java.Before;
 
 public class Context {
 
-	private WebDriver Driver;
+	public static WebDriver Driver;
+	static boolean Sdriver=false;
 
 	@Before
 	public void Setup() {
-		if(Driver!=null)
+		if(!Sdriver)
 		{
 		System.out.println("Driver intializing");
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Irresistable\\iConnectTest\\src\\main\\resources\\chromedriver.exe");
 		Driver = new ChromeDriver();
+		Sdriver=true;
 		System.out.println("Driver initialized");
 		}
 	}

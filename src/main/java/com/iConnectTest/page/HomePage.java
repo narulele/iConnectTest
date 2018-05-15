@@ -47,7 +47,7 @@ public class HomePage extends PageBase {
 	public boolean verifyMenuOptionsIsClickable() {
 		boolean enableFlag = false;
 		for (WebElement Menu : applicationLinks) {
-			enableFlag = Menu.isDisplayed();
+			enableFlag = Menu.isEnabled();
 			System.out.println("User Clicked on" + Menu.getText());
 		}
 		return enableFlag;

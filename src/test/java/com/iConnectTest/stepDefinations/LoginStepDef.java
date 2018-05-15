@@ -33,6 +33,8 @@ public class LoginStepDef {
 		driver = context.getDriver();
 		driver.get("https://iconnect.fs.capgemini.com");
 		loginpage = new LoginPage(driver);
+		homePage=new HomePage(driver);
+		
 	}
 
 	@When("^I Enter valid login credentails$")

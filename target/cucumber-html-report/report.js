@@ -13,14 +13,14 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 4730888238,
+  "duration": 83853207642,
   "status": "passed"
 });
 formatter.scenario({
   "line": 6,
-  "name": "User should be able to see the various options like Deliveries / Facilities/ Finance / Employee Mgmt",
+  "name": "User should be able to see the various options like Deliveries/Facilities/Finance/Employee Mgmt",
   "description": "",
-  "id": "verify-links-from-home-page;user-should-be-able-to-see-the-various-options-like-deliveries-/-facilities/-finance-/-employee-mgmt",
+  "id": "verify-links-from-home-page;user-should-be-able-to-see-the-various-options-like-deliveries/facilities/finance/employee-mgmt",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -42,34 +42,45 @@ formatter.step({
 });
 formatter.step({
   "line": 9,
-  "name": "User able to see the all Menu options",
+  "name": "User Click on Menu Option",
   "keyword": "When "
 });
 formatter.step({
   "line": 10,
-  "name": "Verify label of all menu options",
+  "name": "Verify all Menu options are clickable",
   "keyword": "Then "
 });
-formatter.match({});
+formatter.match({
+  "location": "LoginStepDef.navigate_to_iConnect_page()"
+});
 formatter.result({
-  "status": "undefined"
+  "duration": 50822731756,
+  "status": "passed"
 });
 formatter.match({
   "location": "LoginStepDef.User_is_able_to_login()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 94952397053,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "HomePageStepDef.User_Click_on_Menu_Option()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 24996594270,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HomePageStepDef.Verify_all_Menu_options_are_clickable()"
+});
+formatter.result({
+  "duration": 754506661,
+  "error_message": "java.lang.AssertionError: All main menu options are not displayed\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat com.iConnectTest.stepDefinations.HomePageStepDef.Verify_all_Menu_options_are_clickable(HomePageStepDef.java:37)\r\n\tat ✽.Then Verify all Menu options are clickable(Homepagea.feature:10)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 8390323627,
+  "duration": 30360686241,
   "status": "passed"
 });
 });
