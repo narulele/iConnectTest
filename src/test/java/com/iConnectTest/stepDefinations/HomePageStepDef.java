@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import com.iConnectTest.page.HomePage;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -18,8 +19,15 @@ public class HomePageStepDef {
 
 	public HomePageStepDef(Context context) {
 		this.context = context;
+		driver=context.getDriver();
+		homePage = new HomePage(driver);
+		
 	}
-
+	 @And("User should be on Homepage")
+	 public void User_should_be_on_Homepage()
+	 {
+		 homePage.verifyHomepage();
+	 }
 	@When("^User Click on Menu Option$")
 	public void User_Click_on_Menu_Option() {
 		driver = context.getDriver();

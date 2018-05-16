@@ -13,19 +13,21 @@ public class Context {
 
 	@Before
 	public void Setup() {
-		if(!Sdriver)
+		if(Driver==null)
 		{
 		System.out.println("Driver intializing");
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Irresistable\\iConnectTest\\src\\main\\resources\\chromedriver.exe");
 		Driver = new ChromeDriver();
-		Sdriver=true;
+		Driver.manage().deleteAllCookies();
+		Driver.manage().window().maximize();
+		//sSdriver=true;
 		System.out.println("Driver initialized");
 		}
 	}
 
 	public WebDriver getDriver() {
-		System.out.println("Driver initialized" + Driver);
+		System.out.println("Driver returned" + Driver);
 		return Driver;
 	}
 
@@ -33,6 +35,7 @@ public class Context {
 	public void tearDownDriver() {
 		Driver.quit();
 		System.out.println("Driver Terminated");
+		Driver=null;
 
 	}
 

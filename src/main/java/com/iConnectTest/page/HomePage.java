@@ -33,7 +33,7 @@ public class HomePage extends PageBase {
 	public void verifyHomepage() {
 
 		waitForVisiblityOfElement(welcomeMsg);
-		Assert.assertTrue("User is not on Homepage", welcomeMsg.getText().contentEquals("Welcome"));
+		Assert.assertTrue("User is not on Homepage", welcomeMsg.isDisplayed());
 
 	}
 
@@ -55,12 +55,12 @@ public class HomePage extends PageBase {
 
 	public void getAllVisibleLinkText() {
 		for (int i = 0; i < visibleLink.size(); i++) {
-			if ((visibleLink.get(i).getText()) != null) {
-				Assert.assertFalse("" + visibleLink.get(i).getText() + "Link is not clickable",
+			if ((visibleLink.get(i).getText()).trim()!= null) {
+				Assert.assertTrue("" + visibleLink.get(i).getText() + "Link is not clickable",
 						visibleLink.get(i).isDisplayed());
-				System.out.println("Link text is" + visibleLink.get(i).getText() + "");
+				System.out.println("Link text is:" + visibleLink.get(i).getText() + "");
 			} else {
-				Assert.assertFalse("Link" + visibleLink.get(i).getAttribute("title") + "",
+				Assert.assertTrue("Link" + visibleLink.get(i).getAttribute("title") + "",
 						visibleLink.get(i).isEnabled());
 			}
 		}
@@ -69,9 +69,11 @@ public class HomePage extends PageBase {
 	public void clickOnDeliveryOption(String MenuName) {
 		for (WebElement Menu : applicationLinks) {
 			if ((Menu.isDisplayed()) && Menu.getText().contentEquals(MenuName))
+			{
 				Menu.click();
-			System.out.println("User Clicked on" + Menu.getText());
-			break;
+				System.out.println("User Clicked on" + Menu.getText());
+				break;
+			}
 		}
 	}
 }
